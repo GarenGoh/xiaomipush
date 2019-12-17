@@ -17,5 +17,10 @@
   "requiyyre-dev": {
     "phpunit/phpunit": "~4.0"
   },
+  "autoload": {
+    "psr-4": {
+      "garengoh\\xmpush\\": ""
+    }
+  },
   "minimum-stability": "dev"
 }

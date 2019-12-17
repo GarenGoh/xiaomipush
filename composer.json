@@ -1,6 +1,6 @@
 {
   "name": "garengoh/yii2-xiaomipush",
-  "description": "Aliyun SMS for PHP Yii2",
+  "description": "XiaoMiPush for PHP Yii2",
   "keywords": [ "xiaomipush", "xiaomi", "yii2" ],
   "type": "library",
   "license": "Apache-2.0",

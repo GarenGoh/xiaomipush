@@ -1,10 +1,10 @@
 {
   "name": "garengoh/yii2-xiaomipush",
   "description": "Aliyun SMS for PHP Yii2",
-  "keywords": [ "ali", "sms", "yii2" ],
+  "keywords": [ "xiaomipush", "xiaomi", "yii2" ],
   "type": "library",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/garengoh/yii2-ali-sms.git",
+  "homepage": "https://github.com/garengoh/yii2-xiaomipush.git",
   "authors": [
     {
       "name": "GarenGoh",
@@ -17,11 +17,5 @@
   "require-dev": {
     "phpunit/phpunit": "~4.0"
   },
-  "minimum-stability": "stable",
-  "autoload": {
-    "psr-4": {
-      "Aliyun\\": "lib/",
-      "Aliyun\\Test\\": "tests/"
-    }
-  }
+  "minimum-stability": "stable"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "garengoh/yii2-ali-sms",
+  "name": "garengoh/yii2-xiaomipush",
   "description": "Aliyun SMS for PHP Yii2",
   "keywords": [ "ali", "sms", "yii2" ],
   "type": "library",

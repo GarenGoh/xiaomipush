@@ -1,0 +1,27 @@
+{
+  "name": "garengoh/yii2-ali-sms",
+  "description": "Aliyun SMS for PHP Yii2",
+  "keywords": [ "ali", "sms", "yii2" ],
+  "type": "library",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/garengoh/yii2-ali-sms.git",
+  "authors": [
+    {
+      "name": "GarenGoh",
+      "email": "garen.goh@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Aliyun\\": "lib/",
+      "Aliyun\\Test\\": "tests/"
+    }
+  }
+}

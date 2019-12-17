@@ -11,18 +11,26 @@ include_once(dirname(__FILE__) . '/autoload.php');
 
 class XiaoMiPush
 {
-    public $secret;
-    public $package;   // Android
-    public $bundleId;  // IOS
+//    public $secret;
+//    public $package;   // Android
+//    public $bundleId;  // IOS
+
+    public $secret = 'CXHodE9CbA+PKp1lEMgzvQ==';
+    public $package = 'com.yaohui.jike';   // Android
+    public $bundleId = 'cn.alpha-car.ijk';  // IOS
 
     public function pushAndroid($aliasList, $title, $desc, $payload)
     {
-        echo '<pre>';print_r(
-        $this->package
-        );echo '</pre>';
-        echo '<pre>';print_r(
-        $this->secret
-        );echo '</pre>';
+        echo '<pre>';
+        print_r(
+            111111
+        );
+        echo '</pre>';
+        echo '<pre>';
+        print_r(
+            222222
+        );
+        echo '</pre>';
 
         // 常量设置必须在new Sender()方法之前调用
         Constants::setPackage($this->package);
@@ -30,7 +38,6 @@ class XiaoMiPush
 
         $sender = new Sender();
         // $sender->setRegion(Region::China);// 支持海外
-
         // message1 演示自定义的点击行为
         $message1 = new Builder();
         $message1->title($title);  // 通知栏的title
@@ -47,20 +54,34 @@ class XiaoMiPush
         print_r($sender->sendToAliases($message1, $aliasList)->getRaw());
     }
 
-    public function pushIos(array $aliasList, $desc, $payload)
+    public function pushIos(array $aliasList, $title, $desc, $payload)
     {
+        echo '<pre>';
+        print_r(
+            "33333\n"
+        );
+        echo '</pre>';
+
         Constants::setBundleId($this->bundleId);
         Constants::setSecret($this->secret);
 
+        $aliasList = array('2', 'alias2');
+        $desc = '这是一条mipush推送消息';
+        $payload = '{"test":1,"ok":"It\'s a string"}';
+
         $message = new IOSBuilder();
-        $message->description($desc);
+
+        $message->title($desc);         //（iOS10新特性）通知栏展示的标题，此选项不能和description共存。
+        $message->subtitle('发一条消息如此难');      //（iOS10新特性）通知栏展示的子标题，此选项不能和description共存。
+        $message->body('发一条消息如此难');          //（iOS10新特性）通知栏展示的内容，此选项不能和description共存。
+        $message->description($desc);   // 设置在通知栏展示的通知描述，此方法不推荐使用，建议使用body。
         $message->soundUrl('default');
         $message->badge('4');
         $message->extra('payload', $payload);
         $message->build();
 
         $sender = new Sender();
-        // $sender->setRegion(Region::China);// 支持海外
+// $sender->setRegion(Region::China);// 支持海外
         print_r($sender->sendToAliases($message, $aliasList)->getRaw());
     }
 

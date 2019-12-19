@@ -111,6 +111,8 @@ class Builder extends Message {
     }
 
     public function build() {
+
+
         $keys = array(
             'payload', 'title', 'description', 'pass_through', 'notify_type',
             'restricted_package_name', 'time_to_live', 'time_to_send', 'notify_id'
@@ -132,7 +134,7 @@ class Builder extends Message {
         }
         $this->json_infos['extra'] = $JsonExtra;
 
-        return true;
+        return $this;
     }
 }
 

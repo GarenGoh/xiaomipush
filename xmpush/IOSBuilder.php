@@ -148,7 +148,7 @@ class IOSBuilder extends Message
             }
         }
 
-        return true;
+        return $this;
     }
 }
 

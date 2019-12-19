@@ -14,7 +14,7 @@ class XiaoMiPush
     public $android_secret;
     public $android_package;
     // IOS 配置信息
-    public $ios_secret ;
+    public $ios_secret;
     public $ios_bundleId;
 
     const SYSTEM_ANDROID = 'android';
@@ -24,21 +24,21 @@ class XiaoMiPush
     const ENV_PROD = 'prod';    // 生产环境
 
     /**
-     * @param $system
-     * @return bool|Builder|IOSBuilder
+     * @return Builder
      */
-    public function getMessage($system)
+    public function getAndroidMessage()
     {
-        switch ($system) {
-            case self::SYSTEM_ANDROID:
-                $message = new Builder();
-                break;
-            case self::SYSTEM_IOS:
-                $message = new IOSBuilder();
-                break;
-            default:
-                $message = false;
-        }
+        $message = new Builder();
+
+        return $message;
+    }
+
+    /**
+     * @return IOSBuilder
+     */
+    public function getIOSMessage()
+    {
+        $message = new IOSBuilder();
 
         return $message;
     }
@@ -58,9 +58,9 @@ class XiaoMiPush
         // 常量设置必须在new Sender()方法之前调用
         Constants::setSecret($this->ios_secret);
         Constants::setBundleId($this->ios_bundleId);
-        if($env == self::ENV_DEV){
+        if ($env == self::ENV_DEV) {
             Constants::useSandbox();
-        }elseif($env == self::ENV_PROD){
+        } elseif ($env == self::ENV_PROD) {
             Constants::useOfficial();
         }
         $sender = new Sender();

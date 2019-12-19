@@ -30,6 +30,7 @@ class Builder extends Message {
         $this->payload = $payload;
     }
 
+    // 通知栏的title
     public function title($title) {
         $this->title = $title;
     }
@@ -42,6 +43,7 @@ class Builder extends Message {
         $this->pass_through = $passThrough;
     }
 
+    //通知类型 可组合 (-1 Default_all,1 提示音,2 震动,4 呼吸灯)
     public function notifyType($type) {
         $this->notify_type = $type;
     }

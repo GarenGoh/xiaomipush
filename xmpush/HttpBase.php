@@ -19,7 +19,10 @@ class HttpBase {
     }
 
     /**
+     * 支持海外
      * @param int $region
+     * eg:
+     * $sender->setRegion(Region::China);
      */
     public function setRegion($region) {
         $this->region = $region;

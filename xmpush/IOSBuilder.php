@@ -24,71 +24,99 @@ class IOSBuilder extends Message
     public function parentTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
 
     public function description($description)
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function timeToLive($ttl)
     {
         $this->time_to_live = $ttl;
+
+        return $this;
     }
 
     public function timeToSend($timeToSend)
     {
         $this->time_to_send = $timeToSend;
+
+        return $this;
     }
 
     public function soundUrl($url)
     {
         $this->extra(IOSBuilder::soundUrl, $url);
+
+        return $this;
     }
 
     public function badge($badge)
     {
         $this->extra(IOSBuilder::badge, $badge);
+
+        return $this;
     }
 
     public function contentAvailable($value)
     {
         $this->extra("content-available", $value);
+
+        return $this;
     }
 
     public function showContent()
     {
         $this->extra("show-content", "1");
+
+        return $this;
     }
 
     public function extra($key, $value)
     {
         $this->extra[ $key ] = $value;
+
+        return $this;
     }
 
     public function title($title)
     {
         $this->apsProperFields["title"] = $title;
+
+        return $this;
     }
 
     public function subtitle($subtitle)
     {
         $this->apsProperFields["subtitle"] = $subtitle;
+
+        return $this;
     }
 
     public function body($body)
     {
         $this->apsProperFields["body"] = $body;
+
+        return $this;
     }
 
     public function mutableContent($mutableContent)
     {
         $this->apsProperFields["mutable-content"] = $mutableContent;
+
+        return $this;
     }
 
     public function apsProperFields($key, $value)
     {
         $this->apsProperFields[ $key ] = $value;
+
+        return $this;
     }
 
     public function build()
@@ -119,6 +147,8 @@ class IOSBuilder extends Message
                 $this->fields[ Message::APS_PROPER_FIELDS_PREFIX . $key ] = $value;
             }
         }
+
+        return true;
     }
 }
 

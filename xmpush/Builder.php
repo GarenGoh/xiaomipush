@@ -28,24 +28,34 @@ class Builder extends Message {
 
     public function payload($payload) {
         $this->payload = $payload;
+
+        return $this;
     }
 
     // 通知栏的title
     public function title($title) {
         $this->title = $title;
+
+        return $this;
     }
 
     public function description($description) {
         $this->description = $description;
+
+        return $this;
     }
 
     public function passThrough($passThrough) {
         $this->pass_through = $passThrough;
+
+        return $this;
     }
 
     //通知类型 可组合 (-1 Default_all,1 提示音,2 震动,4 呼吸灯)
     public function notifyType($type) {
         $this->notify_type = $type;
+
+        return $this;
     }
 
     public function restrictedPackageNames($packageNameList) {
@@ -56,14 +66,20 @@ class Builder extends Message {
             }
         }
         $this->restricted_package_name = $jointPackageNames;
+
+        return $this;
     }
 
     public function timeToLive($ttl) {
         $this->time_to_live = $ttl;
+
+        return $this;
     }
 
     public function timeToSend($timeToSend) {
         $this->time_to_send = $timeToSend;
+
+        return $this;
     }
 
     public function instantNotify($isInstantNotify) {
@@ -72,18 +88,26 @@ class Builder extends Message {
         } else {
             unset($this->extra[self::instantNotify]);
         }
+
+        return $this;
     }
 
     public function notifyId($notifyId) {
         $this->notify_id = $notifyId;
+
+        return $this;
     }
 
     public function hybridPath($value) {
         $this->extra[self::HYBRID_PATH] = $value;
+
+        return $this;
     }
 
     public function extra($key, $value) {
         $this->extra[$key] = $value;
+
+        return $this;
     }
 
     public function build() {
@@ -108,6 +132,7 @@ class Builder extends Message {
         }
         $this->json_infos['extra'] = $JsonExtra;
 
+        return true;
     }
 }
 

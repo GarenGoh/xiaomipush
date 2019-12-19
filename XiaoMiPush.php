@@ -10,10 +10,10 @@ include_once(dirname(__FILE__) . '/autoload.php');
 
 class XiaoMiPush
 {
-    // Android
+    // Android 配置信息
     public $android_secret;
     public $android_package;
-    // IOS
+    // IOS 配置信息
     public $ios_secret ;
     public $ios_bundleId;
 

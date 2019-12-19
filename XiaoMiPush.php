@@ -24,23 +24,29 @@ class XiaoMiPush
     const ENV_PROD = 'prod';    // 生产环境
 
     /**
+     * @param Sender $sender
      * @return Builder
      */
-    public function getAndroidMessage()
+    public function getAndroidMessage(Sender $sender)
     {
-        $message = new Builder();
+        if($sender){
+            $message = new Builder();
 
-        return $message;
+            return $message;
+        }
     }
 
     /**
+     * @param Sender $sender
      * @return IOSBuilder
      */
-    public function getIOSMessage()
+    public function getIOSMessage(Sender $sender)
     {
-        $message = new IOSBuilder();
+        if($sender){
+            $message = new IOSBuilder();
 
-        return $message;
+            return $message;
+        }
     }
 
     public function getAndroidSender()

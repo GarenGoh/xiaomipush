@@ -49,7 +49,7 @@
          //->extra(Builder::notifyEffect, 1)            // 此处设置预定义点击行为,1为打开app
          ->extra('payload', $payload)
          ->notifyId(0)                  // 通知类型。最多支持0-4 5个取值范围，同样的类型的通知会互相覆盖，不同类型可以在通知栏并存
-         ->build();
+         ->build();                     // build()方法必须放在最后,其他方法顺序可变化
 
      $result = $sender->sendToAliases($message, [22,11])->getRaw();
 
@@ -76,7 +76,7 @@ public function sendIos()
        ->soundUrl('default')          // 携带的数据，点击后将会通过客户端的receiver中的onReceiveMessage方法传入。
        ->badge('1');//角标数字
        ->extra('payload', $payload);
-       ->build();
+       ->build();                     // build()方法必须放在最后,其他方法顺序可变化
     
     $aliases = [22,11]; // 别名
     // 通过别名发送
